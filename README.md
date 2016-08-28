@@ -1,33 +1,33 @@
-# jQuery RWD Image Maps
+# Image-Map
 
-### Allows image maps to be used in a responsive design by recalculating the area coordinates to match the actual image size on load and window.resize
+A simple plugin for creating responsive [image-maps](https://en.wikipedia.org/wiki/Image_map) that rerender on image or viewport changes.
 
----
 
-#### Usage:
+## Usage:
+Add an **image-map** to your html page. 
+> An **image-map** is an image with clickable areas. The required `name` attribute of the `<map>` element is associated with the `<img>`'s `usemap` attribute and creates a relationship between the image and the map. The `<map>` element contains a number of `<area>` elements, that defines the clickable areas in the image map.
 
-* If possible, add [correct, unitless](http://dev.w3.org/html5/markup/img.html) `width` and `height` attributes to your image map images. You can override these in CSS to make them responsive.
-* Add a link to jQuery in your page, preferably at the bottom just before the closing `</body>`
-* After jQuery, either in a `<script>` block or a separate file, call:
+```html
+<img usemap="#image-map" src="/path/to/image">
 
-```js
-$('img[usemap]').rwdImageMaps();
+<map name="image-map">
+      <area shape="poly" coords="22,22,231,22,264,82,232,143,22,143">
+      <area shape="poly" coords="233,22,443,22,476,82,442,144,233,143,264,82">
+      <area shape="poly" coords="445,22,654,22,686,81,654,143,444,143,475,82">
+      <area shape="poly" coords="655,22,895,22,895,142,655,142,684,82">
+</map>
 ```
 
-You may also want to wrap it inside a `$(document).ready()` function, like so:
-
+### jQuery:
+To use this plugin with jQuery, include both the [jQuery](https://jquery.com/) and `image-map.js` scripts, then simply call:
 ```js
-$(document).ready(function(e) {
-    $('img[usemap]').rwdImageMaps();
-});
+$('img[usemap]').imageMap();
 ```
 
-#### Demo:
+### JavaScript (Vanilla JS):
+To use this plugin with *only* JavaScript, include the `image-map.js` script, then simply call:
+```js
+ImageMap('img[usemap]')
+```
 
-http://mattstow.com/experiment/responsive-image-maps/rwd-image-maps.html
-
----
-
-Copyright (c) 2012 [Matt Stow](http://mattstow.com)  
-Licensed under the MIT license *(see [LICENSE](https://github.com/stowball/jQuery-rwdImageMaps/blob/master/LICENSE) for details)*  
-Minified version created with Online YUI Compressor: http://www.refresh-sf.com/yui/
+### [Live Demo](https://www.travismclarke.com/imagemap/) 
