@@ -1,6 +1,6 @@
 /**
  *
- * Image-Map v1.0.1 (https://www.travismclarke.com)
+ * Image-Map v1.0.2 (https://www.travismclarke.com)
  * Copyright 2016 Travis Clarke
  * License: MIT
  *
@@ -8,7 +8,7 @@
  */
 
 ;(function (root, factory) {
-    if (!((window && window.document) && !(root && root.document))) {
+    if ((!(window && window.document) && !(root && root.document))) {
         throw new Error("ImageMap requires a window with a document");
     }
     if (typeof define === 'function' && define.amd) {
@@ -63,15 +63,16 @@
             newImg.setAttribute('src', img.getAttribute('src'));
         });
 
+        window.addEventListener('resize', function () {
+            return new ImageMap(selector);
+        });
+
         return self;
     };
 
     $.fn.imageMap = function () {
         var self = this;
-        window.addEventListener('resize', function () {
-            return new ImageMap(self);
-        });
-        window.dispatchEvent(new Event('resize'));
+        return new ImageMap(self);
     };
 
     exports.default = exports.ImageMap = ImageMap;
