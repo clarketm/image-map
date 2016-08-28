@@ -2,8 +2,12 @@
 
 A simple plugin for creating responsive [image-maps](https://en.wikipedia.org/wiki/Image_map) that rerender on image or viewport changes.
 
+### Install with npm
+```shell
+$ npm install image-map
+```
 
-## Usage:
+## Usage
 Add an **image-map** to your html page. 
 > An **image-map** is an image with clickable areas. The required `name` attribute of the `<map>` element is associated with the `<img>`'s `usemap` attribute and creates a relationship between the image and the map. The `<map>` element contains a number of `<area>` elements, that defines the clickable areas in the image map.
 
@@ -18,16 +22,16 @@ Add an **image-map** to your html page.
 </map>
 ```
 
-### jQuery:
+### jQuery
 To use this plugin with jQuery, include both the [jQuery](https://jquery.com/) and `image-map.js` scripts, then simply call:
 ```js
 $('img[usemap]').imageMap();
 ```
 
-### JavaScript (Vanilla JS):
+### JavaScript (Vanilla JS)
 To use this plugin with *only* JavaScript, include the `image-map.js` script, then simply call:
 ```js
 ImageMap('img[usemap]')
 ```
 
-### [Live Demo](https://www.travismclarke.com/imagemap/) 
+### [Demo](https://www.travismclarke.com/imagemap/) 
