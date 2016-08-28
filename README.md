@@ -9,6 +9,12 @@ A simple plugin for creating responsive [image-maps](https://en.wikipedia.org/wi
 $ npm install image-map
 ```
 
+### Install with bower
+```shell
+$ bower install image-map
+```
+
+
 ## Usage
 Add an **image-map** to your html page. 
 > An **image-map** is an image with clickable areas. The required `name` attribute of the `<map>` element is associated with the `<img>`'s `usemap` attribute and creates a relationship between the image and the map. The `<map>` element contains a number of `<area>` elements, that defines the clickable areas in the image map.
