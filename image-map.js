@@ -1,6 +1,6 @@
 /**
  *
- * Image-Map v1.0.0 (https://www.travismclarke.com)
+ * Image-Map v1.0.1 (https://www.travismclarke.com)
  * Copyright 2016 Travis Clarke
  * License: MIT
  *
@@ -8,7 +8,7 @@
  */
 
 ;(function (root, factory) {
-    if (!root.document) {
+    if (!((window && window.document) && !(root && root.document))) {
         throw new Error("ImageMap requires a window with a document");
     }
     if (typeof define === 'function' && define.amd) {
