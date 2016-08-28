@@ -21,10 +21,6 @@
     "type": "git",
     "url": "https://github.com/clarketm/image-map"
   },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-uglify": "^2.0.0"
-  },
   "bugs": {
     "url": "https://github.com/clarketm/image-mapissues"
   },
@@ -35,5 +31,10 @@
     "node_modules",
     "test",
     "tests"
-  ]
+  ],
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0"
+  }
 }

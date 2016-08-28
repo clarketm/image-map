@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/clarketm/image-map.svg?branch=master)](https://travis-ci.org/clarketm/image-map)
+
 # Image-Map
 
 A simple plugin for creating responsive [image-maps](https://en.wikipedia.org/wiki/Image_map) that rerender on image or viewport changes.
