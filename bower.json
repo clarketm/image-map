@@ -11,6 +11,9 @@
     "map",
     "image map",
     "image-map",
+    "responsive",
+    "responsive image map",
+    "responsive image-map",
     "jquery-plugin",
     "ecosystem:jquery"
   ],
