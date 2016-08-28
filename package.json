@@ -6,6 +6,9 @@
   ],
   "description": "Response, dynamic image maps",
   "main": "image-map.min.js",
+  "scripts": {
+    "test": "gulp"
+  },
   "keywords": [
     "image",
     "map",
@@ -17,6 +20,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/clarketm/image-map"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^2.0.0"
   },
   "bugs": {
     "url": "https://github.com/clarketm/image-mapissues"
