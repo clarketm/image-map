@@ -1,6 +1,6 @@
 /**
  *
- * Image-Map v1.0.2 (https://www.travismclarke.com)
+ * Image-Map v1.0.3 (https://www.travismclarke.com)
  * Copyright 2016 Travis Clarke
  * License: MIT
  *
@@ -31,41 +31,41 @@
 
         self.selector = selector instanceof $ ? selector.toArray() : [].slice.call(document.querySelectorAll(selector));
 
-        self.selector.forEach(function (val) {
-            var img = val,
-                newImg = document.createElement('img');
+        (self.update = function () {
+            self.selector.forEach(function (val) {
+                var img = val,
+                    newImg = document.createElement('img');
 
-            if (typeof img.getAttribute('usemap') === 'undefined') { return; }
+                if (typeof img.getAttribute('usemap') === 'undefined') { return; }
 
-            newImg.addEventListener('load', function () {
-                var clone = new Image();
-                clone.src = img.getAttribute('src');
+                newImg.addEventListener('load', function () {
+                    var clone = new Image();
+                    clone.src = img.getAttribute('src');
 
-                var w = img.getAttribute('width') || clone.width,
-                    h = img.getAttribute('height') || clone.height,
-                    wPercent = img.offsetWidth / 100,
-                    hPercent = img.offsetHeight / 100,
-                    map = img.getAttribute('usemap').replace('#', ''),
-                    c = 'coords';
+                    var w = img.getAttribute('width') || clone.width,
+                        h = img.getAttribute('height') || clone.height,
+                        wPercent = img.offsetWidth / 100,
+                        hPercent = img.offsetHeight / 100,
+                        map = img.getAttribute('usemap').replace('#', ''),
+                        c = 'coords';
 
-                [].forEach.call(document.querySelectorAll('map[name="' + map + '"] area'), function (val) {
-                    var area = val,
-                        coordsS = area.dataset[c] = area.dataset[c] || area.getAttribute(c),
-                        coordsA = coordsS.split(','),
-                        coordsPercent = Array.apply(null, Array(coordsA.length));
+                    [].forEach.call(document.querySelectorAll('map[name="' + map + '"] area'), function (val) {
+                        var area = val,
+                            coordsS = area.dataset[c] = area.dataset[c] || area.getAttribute(c),
+                            coordsA = coordsS.split(','),
+                            coordsPercent = Array.apply(null, Array(coordsA.length));
 
-                    coordsPercent.forEach(function (val, i) {
-                        coordsPercent[i] = i % 2 === 0 ? Number(((coordsA[i] / w) * 100) * wPercent) : Number(((coordsA[i] / h) * 100) * hPercent);
+                        coordsPercent.forEach(function (val, i) {
+                            coordsPercent[i] = i % 2 === 0 ? Number(((coordsA[i] / w) * 100) * wPercent) : Number(((coordsA[i] / h) * 100) * hPercent);
+                        });
+                        area.setAttribute(c, coordsPercent.toString());
                     });
-                    area.setAttribute(c, coordsPercent.toString());
                 });
+                newImg.setAttribute('src', img.getAttribute('src'));
             });
-            newImg.setAttribute('src', img.getAttribute('src'));
-        });
+        })();
 
-        window.addEventListener('resize', function () {
-            return new ImageMap(selector);
-        });
+        window.addEventListener('resize', self.update);
 
         return self;
     };
