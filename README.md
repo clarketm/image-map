@@ -5,7 +5,7 @@
 
 ![image-map](https://www.travismclarke.com/imagemap/image-map-yellow.png "image-map")
 
-A simple plugin for creating responsive [image-maps](https://en.wikipedia.org/wiki/Image_map) that rerender on image or viewport changes.
+A native JavaScript solution for creating responsive [image-maps](https://en.wikipedia.org/wiki/Image_map) that rerender on image or viewport changes.
 
 ### Install with npm
 ```shell
