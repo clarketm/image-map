@@ -2,8 +2,9 @@
 
 # [Image-Map](https://www.travismclarke.com/imagemap/) 
 
-
 ![image-map](https://www.travismclarke.com/imagemap/image-map-yellow.png "image-map")
+
+### Check out the **[demo](https://www.travismclarke.com/imagemap/)**! 
 
 A native JavaScript solution for creating responsive [image-maps](https://en.wikipedia.org/wiki/Image_map) that rerender on image or viewport changes.
 
@@ -44,5 +45,3 @@ To use this plugin with *only* JavaScript, include the `image-map.js` script, th
 ```js
 ImageMap('img[usemap]')
 ```
-
-### [Demo](https://www.travismclarke.com/imagemap/) 
