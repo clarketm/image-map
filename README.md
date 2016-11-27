@@ -4,9 +4,9 @@
 
 ![image-map](https://www.travismclarke.com/imagemap/image-map-yellow.png "image-map")
 
-### Check out the **[demo](https://www.travismclarke.com/imagemap/)**! 
-
 A native JavaScript solution for creating responsive [image-maps](https://en.wikipedia.org/wiki/Image_map) that rerender on image or viewport changes.
+
+### Check out the **[demo](https://www.travismclarke.com/imagemap/)**! 
 
 ### Install with npm
 ```shell
