@@ -1,11 +1,12 @@
 [![Build Status](https://travis-ci.org/clarketm/image-map.svg?branch=master)](https://travis-ci.org/clarketm/image-map)
 
-# Image-Map
-
+# [Image-Map](https://www.travismclarke.com/imagemap/) 
 
 ![image-map](https://www.travismclarke.com/imagemap/image-map-yellow.png "image-map")
 
-A simple plugin for creating responsive [image-maps](https://en.wikipedia.org/wiki/Image_map) that rerender on image or viewport changes.
+A native JavaScript solution for creating responsive [image-maps](https://en.wikipedia.org/wiki/Image_map) that rerender on image or viewport changes.
+
+### Check out the **[demo](https://www.travismclarke.com/imagemap/)**! 
 
 ### Install with npm
 ```shell
@@ -44,5 +45,3 @@ To use this plugin with *only* JavaScript, include the `image-map.js` script, th
 ```js
 ImageMap('img[usemap]')
 ```
-
-### [Demo](https://www.travismclarke.com/imagemap/) 
