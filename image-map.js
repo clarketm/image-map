@@ -1,6 +1,6 @@
 /**
  *
- * Image-Map v1.0.3 (https://www.travismclarke.com)
+ * Image-Map v1.0.4 (https://www.travismclarke.com)
  * Copyright 2016 Travis Clarke
  * License: MIT
  *
@@ -21,7 +21,7 @@
         // Browser globals
         factory(root, root.jQuery);
     }
-}(this, function (exports, $) {
+}(this || window, function (exports, $) {
     'use strict';
 
     var ImageMap = function (selector) {
@@ -29,7 +29,7 @@
 
         if (!self) { return new ImageMap(selector); }
 
-        self.selector = selector instanceof $ ? selector.toArray() : [].slice.call(document.querySelectorAll(selector));
+        self.selector = selector instanceof Array ? selector : [].slice.call(document.querySelectorAll(selector));
 
         (self.update = function () {
             self.selector.forEach(function (val) {
@@ -70,10 +70,12 @@
         return self;
     };
 
-    $.fn.imageMap = function () {
-        var self = this;
-        return new ImageMap(self);
-    };
+    if ($ && $.fn) {
+        $.fn.imageMap = function () {
+            var self = this;
+            return new ImageMap(self.toArray());
+        };
+    }
 
     exports.default = exports.ImageMap = ImageMap;
 }));
