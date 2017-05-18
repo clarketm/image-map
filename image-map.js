@@ -13,15 +13,15 @@
     }
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
-        define(['exports', 'jquery'], factory);
+        define(['jquery'], factory);
     } else if (typeof exports === 'object' && typeof exports.nodeName !== 'string') {
         // CommonJS
-        factory(exports, require('jquery'));
+        module.exports = factory(require('jquery'));
     } else {
         // Browser globals
-        factory(root, root.jQuery);
+        root.ImageMap = factory(root.jQuery);
     }
-}(this || window, function (exports, $) {
+}(this || window, function ($) {
     'use strict';
 
     var ImageMap = function (selector) {
@@ -77,5 +77,5 @@
         };
     }
 
-    exports.default = exports.ImageMap = ImageMap;
+    return ImageMap;
 }));
