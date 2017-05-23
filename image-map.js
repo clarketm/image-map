@@ -1,6 +1,6 @@
 /**
  *
- * Image-Map v1.0.4 (https://www.travismclarke.com)
+ * Image-Map v1.0.5 (https://www.travismclarke.com)
  * Copyright 2016 Travis Clarke
  * License: MIT
  *
