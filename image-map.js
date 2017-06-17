@@ -76,6 +76,8 @@
             return new ImageMap(self.toArray());
         };
     }
-
+    
+    ImageMap.ImageMap = ImageMap;
+    
     return ImageMap;
 }));
