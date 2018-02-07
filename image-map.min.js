@@ -1,8 +1,8 @@
 /**
  *
- * Image-Map v1.0.7 (https://www.travismclarke.com)
- * Copyright 2016 Travis Clarke
- * License: MIT
+ * Image-Map v1.0.8 (https://www.travismclarke.com)
+ * Copyright 2018 Travis Clarke
+ * License: Apache-2.0
  *
  * @preserve
  */

@@ -1,6 +1,6 @@
 {
   "name": "image-map",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "authors": [
     "clarketm <travis.m.clarke@gmail.com>"
   ],
@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/clarketm/image-mapissues"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "homepage": "https://www.travismclarke.com",
   "ignore": [
     "**/.*",
@@ -35,12 +35,12 @@
     "test",
     "tests"
   ],
+  "peerDependencies": {
+    "jquery": ">= 1.1.2"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0"
-  },
-  "dependencies": {
-    "jquery": "^3.2.1"
   }
 }
