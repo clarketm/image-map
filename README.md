@@ -8,6 +8,8 @@ A native JavaScript solution for creating responsive [image-maps](https://en.wik
 
 ### Check out the **[demo](https://www.travismclarke.com/imagemap/)**! 
 
+## Installation
+
 ### Install with npm
 ```shell
 $ npm install image-map
@@ -17,6 +19,11 @@ $ npm install image-map
 ```shell
 $ bower install image-map
 ```
+
+### CDN
+|          | uncompressed | compressed |
+| :------: | :----------: | :--------: |
+|  __JS__  |  [🔗](https://unpkg.com/image-map/image-map.js)  |  [🔗](https://unpkg.com/image-map/image-map.min.js)  |
 
 ## Generating the image map `html`
 You can generate image maps using this wonderful online tool: https://www.image-map.net/. It works for both local and web images. 
