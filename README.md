@@ -45,3 +45,5 @@ To use this plugin with *only* JavaScript, include the `image-map.js` script, th
 ```js
 ImageMap('img[usemap]')
 ```
+## Generating the image map `html`
+* You can generate image maps using this wonderful online tool: https://www.image-map.net/. It works for both local and web images. 
