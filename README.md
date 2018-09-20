@@ -18,9 +18,11 @@ $ npm install image-map
 $ bower install image-map
 ```
 
+## Generating the image map `html`
+You can generate image maps using this wonderful online tool: https://www.image-map.net/. It works for both local and web images. 
 
 ## Usage
-Add an **image-map** to your html page. 
+Add an **image-map** to your html page (either create one yourself or try the [online image map generator](https://www.image-map.net/)). 
 > An **image-map** is an image with clickable areas. The required `name` attribute of the `<map>` element is associated with the `<img>`'s `usemap` attribute and creates a relationship between the image and the map. The `<map>` element contains a number of `<area>` elements, that defines the clickable areas in the image map.
 
 ```html
@@ -45,5 +47,3 @@ To use this plugin with *only* JavaScript, include the `image-map.js` script, th
 ```js
 ImageMap('img[usemap]')
 ```
-## Generating the image map `html`
-You can generate image maps using this wonderful online tool: https://www.image-map.net/. It works for both local and web images. 
