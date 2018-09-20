@@ -21,9 +21,9 @@ $ bower install image-map
 ```
 
 ### CDN
-|          | uncompressed | compressed |
-| :------: | :----------: | :--------: |
-|  __JS__  |  [🔗](https://unpkg.com/image-map/image-map.js)  |  [🔗](https://unpkg.com/image-map/image-map.min.js)  |
+| uncompressed | compressed |
+| :----------: | :--------: |
+| [🔗](https://unpkg.com/image-map/image-map.js)  |  [🔗](https://unpkg.com/image-map/image-map.min.js)  |
 
 ## Generating the image map `html`
 You can generate image maps using this wonderful online tool: https://www.image-map.net/. It works for both local and web images. 
