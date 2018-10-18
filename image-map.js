@@ -1,6 +1,6 @@
 /**
  *
- * Image-Map v1.0.8 (https://www.travismclarke.com)
+ * Image-Map v1.0.9 (https://www.travismclarke.com)
  * Copyright 2018 Travis Clarke
  * License: Apache-2.0
  *
@@ -9,7 +9,7 @@
 
 ;(function (root, factory) {
     if ((!(window && window.document) && !(root && root.document))) {
-        throw new Error("ImageMap requires a window with a document");
+        throw new Error('ImageMap requires a window with a document');
     }
     if (typeof define === 'function' && define.amd) {
         // AMD. Register as an anonymous module.
@@ -24,6 +24,38 @@
 }(this || window, function ($) {
     'use strict';
 
+    // NodeList.prototype.forEach() polyfill
+    if (window.NodeList && !NodeList.prototype.forEach) {
+        NodeList.prototype.forEach = function (callback, thisArg) {
+            thisArg = thisArg || window;
+            for (var i = 0; i < this.length; i++) {
+                callback.call(thisArg, this[i], i, this);
+            }
+        };
+    }
+
+    /**
+     * Debounce
+     *
+     * @param {function} func
+     * @param {number} [wait=500]
+     */
+    var debounce = function (func, wait) {
+        var timeout;
+        wait = wait || 500;
+        return function () {
+            var args = arguments;
+            window.clearTimeout(timeout);
+            timeout = window.setTimeout(function (ctx) { return func.apply(ctx, args); }, wait, this);
+        };
+    };
+
+    /**
+     * ImageMap main library constructor
+     *
+     * @param selector {string} CSS selector
+     * @constructor
+     */
     var ImageMap = function (selector) {
         var self = this;
 
@@ -49,7 +81,7 @@
                         map = img.getAttribute('usemap').replace('#', ''),
                         c = 'coords';
 
-                    [].forEach.call(document.querySelectorAll('map[name="' + map + '"] area'), function (val) {
+                    document.querySelectorAll('map[name="' + map + '"] area').forEach(function (val) {
                         var area = val,
                             coordsS = area.dataset[c] = area.dataset[c] || area.getAttribute(c),
                             coordsA = coordsS.split(','),
@@ -65,7 +97,7 @@
             });
         })();
 
-        window.addEventListener('resize', self.update);
+        window.addEventListener('resize', debounce(self.update, 500));
 
         return self;
     };
@@ -76,8 +108,8 @@
             return new ImageMap(self.toArray());
         };
     }
-    
+
     ImageMap.ImageMap = ImageMap;
-    
+
     return ImageMap;
 }));
