@@ -1,6 +1,6 @@
 {
   "name": "image-map",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "authors": [
     "clarketm <travis.m.clarke@gmail.com>"
   ],
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.0.0"
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^2.1.2"
   }
 }
