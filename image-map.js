@@ -102,7 +102,7 @@
         return self;
     };
 
-    if ($ && $.fn) {
+    if (typeof $ !== 'undefined' && $.fn) {
         $.fn.imageMap = function () {
             var self = this;
             return new ImageMap(self.toArray());
