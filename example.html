@@ -21,7 +21,7 @@
   <area shape="poly" alt="yellow" title="yellow" onclick="selectRegion(this, 'yellow')"
         coords="286,27,543,27,583,101,542,176,286,175,324,101">
   <area shape="poly" alt="pink" title="pink" onclick="selectRegion(this, 'pink')"
-        coords="545,28,801,27,840,1.0.901,175,544,175,582,101">
+        coords="545,28,801,27,840,100,801,175,544,175,582,101">
   <area shape="poly" alt="orange" title="orange" onclick="selectRegion(this, 'orange')"
         coords="802,27,1096,27,1096,174,802,174,838,101">
 </map>
@@ -33,7 +33,7 @@
   <area shape="poly" alt="yellow" title="yellow" onclick="selectRegion(this, 'yellow')"
         coords="286,27,543,27,583,101,542,176,286,175,324,101">
   <area shape="poly" alt="pink" title="pink" onclick="selectRegion(this, 'pink')"
-        coords="545,28,801,27,840,1.0.901,175,544,175,582,101">
+        coords="545,28,801,27,840,100,801,175,544,175,582,101">
   <area shape="poly" alt="orange" title="orange" onclick="selectRegion(this, 'orange')"
         coords="802,27,1096,27,1096,174,802,174,838,101">
 </map>
@@ -50,7 +50,7 @@
     // $('img[usemap]').imageMap();
 
     function selectRegion (ctx, region) {
-        var selector = "img[usemap='#" + ctx.parentElement.name + "']";
+        var selector = 'img[usemap=\'#' + ctx.parentElement.name + '\']';
         document.querySelector(selector).setAttribute('src', 'https://www.travismclarke.com/imagemap/image-map-' + region + '.png');
     }
 </script>
