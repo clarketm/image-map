@@ -55,98 +55,7 @@
     throw new TypeError("Invalid attempt to spread non-iterable instance");
   }
 
-  var name = "image-map";
-  var version = "1.1.2";
-  var description = "Response, dynamic image maps";
-  var main = "dist/image-map.js";
-  var module$1 = "dist/image-map.es.js";
-  var directories = {
-  	example: "example"
-  };
-  var files = [
-  	"dist",
-  	"README.md",
-  	"LICENSE"
-  ];
-  var scripts = {
-  	build: "yarn build:dist",
-  	"build:dist": "shx rm -rf ./dist/* ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
-  	"stats:dist": "node ./resources/dist-stats.js",
-  	"bundle:dist": "rollup -c ./resources/rollup-config.js",
-  	"bundle:es": "rollup -c ./resources/rollup-config-es.js",
-  	prettier: "prettier --write './src/*.{js,css,md}'",
-  	prep: "yarn prettier && yarn build && yarn test",
-  	test: "exit 0",
-  	prepublishOnly: "yarn prep && bash ./resources/publish.sh"
-  };
-  var author = {
-  	name: "Travis Clarke",
-  	email: "travis.m.clarke@gmail.com",
-  	url: "https://www.travismclarke.com/"
-  };
-  var keywords = [
-  	"image",
-  	"map",
-  	"image map",
-  	"image-map",
-  	"responsive",
-  	"responsive image map",
-  	"responsive image-map",
-  	"jquery-plugin",
-  	"ecosystem:jquery"
-  ];
-  var repository = {
-  	type: "git",
-  	url: "https://github.com/clarketm/image-map"
-  };
-  var bugs = {
-  	url: "https://github.com/clarketm/image-map/issues"
-  };
-  var license = "Apache-2.0";
-  var homepage = "https://github.com/clarketm/image-map#readme";
-  var ignore = [
-  	"**/.*",
-  	"node_modules",
-  	"test",
-  	"tests"
-  ];
-  var peerDependencies = {
-  	jquery: ">= 1.1.2"
-  };
-  var devDependencies = {
-  	"@babel/core": "^7.1.2",
-  	"@babel/preset-env": "^7.1.0",
-  	"@types/node": "^10.11.5",
-  	colors: "^1.3.2",
-  	prettier: "^1.14.3",
-  	rollup: "^0.66.4",
-  	"rollup-plugin-babel": "^4.0.3",
-  	"rollup-plugin-commonjs": "^9.1.8",
-  	"rollup-plugin-json": "^3.1.0",
-  	"rollup-plugin-strip-banner": "^0.2.0",
-  	shx: "^0.3.2",
-  	"uglify-js": "2.8.11",
-  	"uglify-save-license": "^0.4.1"
-  };
-  var packageJson = {
-  	name: name,
-  	version: version,
-  	description: description,
-  	main: main,
-  	module: module$1,
-  	directories: directories,
-  	files: files,
-  	scripts: scripts,
-  	author: author,
-  	keywords: keywords,
-  	repository: repository,
-  	bugs: bugs,
-  	license: license,
-  	homepage: homepage,
-  	ignore: ignore,
-  	peerDependencies: peerDependencies,
-  	devDependencies: devDependencies
-  };
+  var version = "1.1.3";
 
   var RESIZE = "resize";
   var LOAD = "load";
@@ -262,7 +171,7 @@
     return new ImageMap(selector, wait);
   }
 
-  _ImageMap.VERSION = packageJson.version;
+  _ImageMap.VERSION = version;
 
   return _ImageMap;
 

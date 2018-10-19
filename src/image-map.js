@@ -1,5 +1,5 @@
 import $ from "jquery";
-import packageJson from "../package.json";
+import { version } from "../package.json";
 
 const RESIZE = "resize";
 const LOAD = "load";
@@ -87,6 +87,6 @@ function _ImageMap(selector, wait) {
   return new ImageMap(selector, wait);
 }
 
-_ImageMap.VERSION = packageJson.version;
+_ImageMap.VERSION = version;
 
 export default _ImageMap;
