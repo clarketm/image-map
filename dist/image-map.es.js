@@ -50,7 +50,7 @@ function _nonIterableSpread() {
 }
 
 var name = "image-map";
-var version = "1.1.1";
+var version = "1.1.2";
 var description = "Response, dynamic image maps";
 var main = "dist/image-map.js";
 var module$1 = "dist/image-map.es.js";
