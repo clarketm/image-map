@@ -14,7 +14,7 @@
   }
 </style>
 
-<img usemap="#image-map-1" src="https://www.travismclarke.com/imagemap/image-map-all.png">
+<img id="1" usemap="#image-map-1" src="https://www.travismclarke.com/imagemap/image-map-all.png">
 <map name="image-map-1">
   <area shape="poly" alt="blue" title="blue" onclick="selectRegion(this, 'blue')"
         coords="28,27,283,27,324,101,285,175,27,175">
@@ -26,7 +26,7 @@
         coords="802,27,1096,27,1096,174,802,174,838,101">
 </map>
 
-<img usemap="#image-map-2" src="https://www.travismclarke.com/imagemap/image-map-all.png">
+<img id="2" usemap="#image-map-2" src="https://www.travismclarke.com/imagemap/image-map-all.png">
 <map name="image-map-2">
   <area shape="poly" alt="blue" title="blue" onclick="selectRegion(this, 'blue')"
         coords="28,27,283,27,324,101,285,175,27,175">
@@ -40,14 +40,14 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!--<script src="./image-map.min.js"></script>-->
-<script src="./image-map.js"></script>
+<script src="../dist/image-map.js"></script>
 <script>
 
     /* JavaScript */
-    ImageMap('img[usemap]');
+    ImageMap('img[usemap]', 500);
 
     /* jQuery */
-    // $('img[usemap]').imageMap();
+    // $('img[usemap]').imageMap(500);
 
     function selectRegion (ctx, region) {
         var selector = 'img[usemap=\'#' + ctx.parentElement.name + '\']';
