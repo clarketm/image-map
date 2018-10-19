@@ -1,6 +1,6 @@
 {
   "name": "image-map",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Response, dynamic image maps",
   "main": "dist/image-map.js",
   "module": "dist/image-map.es.js",
@@ -44,7 +44,7 @@
     "url": "https://github.com/clarketm/image-map"
   },
   "bugs": {
-    "url": "https://github.com/clarketm/image-mapissues"
+    "url": "https://github.com/clarketm/image-map/issues"
   },
   "license": "Apache-2.0",
   "homepage": "https://github.com/clarketm/image-map#readme",

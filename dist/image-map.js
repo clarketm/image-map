@@ -56,7 +56,7 @@
   }
 
   var name = "image-map";
-  var version = "1.1.0";
+  var version = "1.1.1";
   var description = "Response, dynamic image maps";
   var main = "dist/image-map.js";
   var module$1 = "dist/image-map.es.js";
@@ -100,7 +100,7 @@
   	url: "https://github.com/clarketm/image-map"
   };
   var bugs = {
-  	url: "https://github.com/clarketm/image-mapissues"
+  	url: "https://github.com/clarketm/image-map/issues"
   };
   var license = "Apache-2.0";
   var homepage = "https://github.com/clarketm/image-map#readme";
