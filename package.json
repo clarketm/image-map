@@ -1,13 +1,32 @@
 {
   "name": "image-map",
-  "version": "1.0.9",
-  "authors": [
-    "clarketm <travis.m.clarke@gmail.com>"
-  ],
+  "version": "1.1.0",
   "description": "Response, dynamic image maps",
-  "main": "image-map.min.js",
+  "main": "dist/image-map.js",
+  "module": "dist/image-map.es.js",
+  "directories": {
+    "example": "example"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "test": "gulp"
+    "build": "yarn build:dist",
+    "build:dist": "shx rm -rf ./dist/* ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
+    "stats:dist": "node ./resources/dist-stats.js",
+    "bundle:dist": "rollup -c ./resources/rollup-config.js",
+    "bundle:es": "rollup -c ./resources/rollup-config-es.js",
+    "prettier": "prettier --write './src/*.{js,css,md}'",
+    "prep": "yarn prettier && yarn build && yarn test",
+    "test": "exit 0",
+    "prepublishOnly": "yarn prep && bash ./resources/publish.sh"
+  },
+  "author": {
+    "name": "Travis Clarke",
+    "email": "travis.m.clarke@gmail.com",
+    "url": "https://www.travismclarke.com/"
   },
   "keywords": [
     "image",
@@ -28,7 +47,7 @@
     "url": "https://github.com/clarketm/image-mapissues"
   },
   "license": "Apache-2.0",
-  "homepage": "https://www.travismclarke.com",
+  "homepage": "https://github.com/clarketm/image-map#readme",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -39,8 +58,18 @@
     "jquery": ">= 1.1.2"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-uglify": "^2.1.2"
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@types/node": "^10.11.5",
+    "colors": "^1.3.2",
+    "prettier": "^1.14.3",
+    "rollup": "^0.66.4",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^9.1.8",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-strip-banner": "^0.2.0",
+    "shx": "^0.3.2",
+    "uglify-js": "2.8.11",
+    "uglify-save-license": "^0.4.1"
   }
 }
