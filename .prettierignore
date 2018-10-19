@@ -1,0 +1,9 @@
+.idea
+*.iml
+*.log
+*.min.*
+build
+dist
+node_modules
+package.json
+
