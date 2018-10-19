@@ -24,7 +24,7 @@ $ bower install image-map
 ### CDN
 |                        Module (`.es.js`)                  |                        Main (`.js`)                    |                        Main (compressed) `.min.js`         |
 | :-------------------------------------------------------: | :----------------------------------------------------: | :--------------------------------------------------------: |
-| [🔗](https://unpkg.com/image-map/dist/saga-monitor.es.js) | [🔗](https://unpkg.com/image-map/dist/saga-monitor.js) | [🔗](https://unpkg.com/image-map/dist/saga-monitor.min.js) |
+| [🔗](https://unpkg.com/image-map/dist/image-map.es.js)    | [🔗](https://unpkg.com/image-map/dist/image-map.js)    | [🔗](https://unpkg.com/image-map/dist/image-map.min.js)    |
 
 ## Generating the image map `html`
 You can generate image maps using this wonderful online tool: https://www.image-map.net/. It works for both local and web images.
