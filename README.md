@@ -45,7 +45,7 @@ Add an **image-map** to your html page (either create one yourself or try the [o
 ```
 
 ### jQuery
-To use this plugin with jQuery, include both the [jQuery](https://jquery.com/) and `image-map.js` scripts, then simply call:
+To use this plugin with jQuery, include (or import) both the [jQuery](https://jquery.com/) and `image-map.js` libraries, then simply call:
 ```js
 $('img[usemap]').imageMap();
 ```
@@ -56,7 +56,7 @@ $('img[usemap]').imageMap(500);
 ```
 
 ### JavaScript (Vanilla JS)
-To use this plugin with *only* JavaScript, include the `image-map.js` script, then simply call:
+To use this plugin with *only* JavaScript, include (or import) the `image-map.js` library, then simply call:
 ```js
 ImageMap('img[usemap]')
 ```
