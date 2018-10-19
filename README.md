@@ -22,7 +22,7 @@ $ bower install image-map
 ```
 
 ### CDN
-|                        `.es.                              |                        `.js`                           |                        `.min                               |
+|                        Module (`.es.js`)                  |                        Main (`.js`)                    |                        Main (compressed) `.min.js`         |
 | :-------------------------------------------------------: | :----------------------------------------------------: | :--------------------------------------------------------: |
 | [🔗](https://unpkg.com/image-map/dist/saga-monitor.es.js) | [🔗](https://unpkg.com/image-map/dist/saga-monitor.js) | [🔗](https://unpkg.com/image-map/dist/saga-monitor.min.js) |
 

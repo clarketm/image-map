@@ -1,10 +1,8 @@
 /**
+ * Copyright (c) 2018, Travis Clarke (https://www.travismclarke.com/)
  *
- * Image-Map v1.1.0 (https://www.travismclarke.com)
- * Copyright 2018 Travis Clarke
- * License: Apache-2.0
- *
- * @preserve
+ * This source code is licensed under the Apache-2.0 license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 import $ from 'jquery';
@@ -53,14 +51,17 @@ function _nonIterableSpread() {
 
 var name = "image-map";
 var version = "1.1.0";
-var author = {
-	name: "Travis Clarke",
-	email: "travis.m.clarke@gmail.com",
-	url: "https://www.travismclarke.com/"
-};
 var description = "Response, dynamic image maps";
 var main = "dist/image-map.js";
 var module$1 = "dist/image-map.es.js";
+var directories = {
+	example: "example"
+};
+var files = [
+	"dist",
+	"README.md",
+	"LICENSE"
+];
 var scripts = {
 	build: "yarn build:dist",
 	"build:dist": "shx rm -rf ./dist/* ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
@@ -71,6 +72,11 @@ var scripts = {
 	prep: "yarn prettier && yarn build && yarn test",
 	test: "exit 0",
 	prepublishOnly: "yarn prep && bash ./resources/publish.sh"
+};
+var author = {
+	name: "Travis Clarke",
+	email: "travis.m.clarke@gmail.com",
+	url: "https://www.travismclarke.com/"
 };
 var keywords = [
 	"image",
@@ -91,7 +97,7 @@ var bugs = {
 	url: "https://github.com/clarketm/image-mapissues"
 };
 var license = "Apache-2.0";
-var homepage = "https://www.travismclarke.com";
+var homepage = "https://github.com/clarketm/image-map#readme";
 var ignore = [
 	"**/.*",
 	"node_modules",
@@ -119,11 +125,13 @@ var devDependencies = {
 var packageJson = {
 	name: name,
 	version: version,
-	author: author,
 	description: description,
 	main: main,
 	module: module$1,
+	directories: directories,
+	files: files,
 	scripts: scripts,
+	author: author,
 	keywords: keywords,
 	repository: repository,
 	bugs: bugs,
