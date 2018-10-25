@@ -55,12 +55,11 @@
     throw new TypeError("Invalid attempt to spread non-iterable instance");
   }
 
-  var version = "1.1.3";
+  var version = "1.1.4";
 
   var RESIZE = "resize";
   var LOAD = "load";
   var USEMAP = "usemap";
-  var SRC = SRC;
   var COORDS = "coords";
   /**
    * ImageMap main library constructor
@@ -94,7 +93,6 @@
           if (img.getAttribute(USEMAP) === undefined) return;
           var newImg = img.cloneNode();
           newImg.addEventListener(LOAD, _this.handleImageLoad(img.offsetWidth, img.offsetHeight));
-          newImg.setAttribute(SRC, img.getAttribute(SRC));
         });
       }
       /**

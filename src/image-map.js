@@ -4,7 +4,6 @@ import { version } from "../package.json";
 const RESIZE = "resize";
 const LOAD = "load";
 const USEMAP = "usemap";
-const SRC = SRC;
 const COORDS = "coords";
 
 /**
@@ -33,7 +32,6 @@ class ImageMap {
       if (img.getAttribute(USEMAP) === undefined) return;
       const newImg = img.cloneNode();
       newImg.addEventListener(LOAD, this.handleImageLoad(img.offsetWidth, img.offsetHeight));
-      newImg.setAttribute(SRC, img.getAttribute(SRC));
     });
   }
 
