@@ -55,12 +55,13 @@
     throw new TypeError("Invalid attempt to spread non-iterable instance");
   }
 
-  var version = "1.1.4";
+  var version = "1.1.5";
 
   var RESIZE = "resize";
   var LOAD = "load";
   var USEMAP = "usemap";
   var COORDS = "coords";
+  var COMPLETE = "complete";
   /**
    * ImageMap main library constructor
    *
@@ -76,7 +77,7 @@
       _classCallCheck(this, ImageMap);
 
       this.selector = selector instanceof Array ? selector : _toConsumableArray(document.querySelectorAll(selector));
-      this.update();
+      if (document.readyState !== COMPLETE) window.addEventListener(LOAD, this.update.bind(this));else this.update();
       window.addEventListener(RESIZE, this.debounce(this.update, wait).bind(this));
     }
 

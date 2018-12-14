@@ -5,6 +5,7 @@ const RESIZE = "resize";
 const LOAD = "load";
 const USEMAP = "usemap";
 const COORDS = "coords";
+const COMPLETE = "complete";
 
 /**
  * ImageMap main library constructor
@@ -16,7 +17,8 @@ const COORDS = "coords";
 class ImageMap {
   constructor(selector, wait) {
     this.selector = selector instanceof Array ? selector : [...document.querySelectorAll(selector)];
-    this.update();
+    if (document.readyState !== COMPLETE) window.addEventListener(LOAD, this.update.bind(this));
+    else this.update();
     window.addEventListener(RESIZE, this.debounce(this.update, wait).bind(this));
   }
 
