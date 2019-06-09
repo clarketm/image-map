@@ -68,8 +68,8 @@ class ImageMap {
       [...document.querySelectorAll(ImageMap.genAreaSelector(mapName))].forEach(area => {
         const coordsString = (area.dataset[COORDS] = area.dataset[COORDS] || area.getAttribute(COORDS));
         const coordsArrayOld = coordsString.split(",");
-        const coordsArrayNew = coordsArrayOld.map(
-          (_, i) => (i % 2 === 0 ? Number((coordsArrayOld[i] / w) * 100 * wPercent) : Number((coordsArrayOld[i] / h) * 100 * hPercent))
+        const coordsArrayNew = coordsArrayOld.map((_, i) =>
+          i % 2 === 0 ? Number((coordsArrayOld[i] / w) * 100 * wPercent) : Number((coordsArrayOld[i] / h) * 100 * hPercent)
         );
         area.setAttribute(COORDS, coordsArrayNew.toString());
       });
