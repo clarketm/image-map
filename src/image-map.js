@@ -16,7 +16,7 @@ const COMPLETE = "complete";
  */
 class ImageMap {
   constructor(selector, wait) {
-    this.selector = selector instanceof Array ? selector : [...document.querySelectorAll(selector)];
+    this.selector = selector instanceof Array ? selector : document.querySelectorAll(selector);
     if (document.readyState !== COMPLETE) window.addEventListener(LOAD, this.update.bind(this));
     else this.update();
     window.addEventListener(RESIZE, this.debounce(this.update, wait).bind(this));
@@ -30,11 +30,16 @@ class ImageMap {
    * Update
    */
   update() {
-    this.selector.forEach(img => {
+    const imgs = this.selector;
+
+    for (let i = 0; i < imgs.length; i++) {
+      const img = imgs[i];
+
       if (img.getAttribute(USEMAP) === undefined) return;
       const newImg = img.cloneNode();
       newImg.addEventListener(LOAD, this.handleImageLoad(img.offsetWidth, img.offsetHeight));
-    });
+      newImg.src = img.src; // required for IE
+    }
   }
 
   /**
@@ -65,14 +70,17 @@ class ImageMap {
       const hPercent = offsetHeight / 100;
       const mapName = e.target.getAttribute(USEMAP).replace(/^#/, "");
 
-      [...document.querySelectorAll(ImageMap.genAreaSelector(mapName))].forEach(area => {
+      const areas = document.querySelectorAll(ImageMap.genAreaSelector(mapName));
+      for (let i = 0; i < areas.length; i++) {
+        const area = areas[i];
+
         const coordsString = (area.dataset[COORDS] = area.dataset[COORDS] || area.getAttribute(COORDS));
         const coordsArrayOld = coordsString.split(",");
         const coordsArrayNew = coordsArrayOld.map((_, i) =>
           i % 2 === 0 ? Number((coordsArrayOld[i] / w) * 100 * wPercent) : Number((coordsArrayOld[i] / h) * 100 * hPercent)
         );
         area.setAttribute(COORDS, coordsArrayNew.toString());
-      });
+      }
     };
   }
 }
