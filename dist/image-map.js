@@ -8,8 +8,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery')) :
   typeof define === 'function' && define.amd ? define(['jquery'], factory) :
-  (global.ImageMap = factory(global.$));
-}(this, (function ($) { 'use strict';
+  (global = global || self, global.ImageMap = factory(global.$));
+}(this, function ($) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
 
@@ -35,27 +35,7 @@
     return Constructor;
   }
 
-  function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
-  }
-
-  function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) {
-      for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-      return arr2;
-    }
-  }
-
-  function _iterableToArray(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
-  }
-
-  function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance");
-  }
-
-  var version = "1.1.6";
+  var version = "1.1.7";
 
   var RESIZE = "resize";
   var LOAD = "load";
@@ -76,7 +56,7 @@
     function ImageMap(selector, wait) {
       _classCallCheck(this, ImageMap);
 
-      this.selector = selector instanceof Array ? selector : _toConsumableArray(document.querySelectorAll(selector));
+      this.selector = selector instanceof Array ? selector : document.querySelectorAll(selector);
       if (document.readyState !== COMPLETE) window.addEventListener(LOAD, this.update.bind(this));else this.update();
       window.addEventListener(RESIZE, this.debounce(this.update, wait).bind(this));
     }
@@ -88,13 +68,15 @@
        * Update
        */
       value: function update() {
-        var _this = this;
+        var imgs = this.selector;
 
-        this.selector.forEach(function (img) {
+        for (var i = 0; i < imgs.length; i++) {
+          var img = imgs[i];
           if (img.getAttribute(USEMAP) === undefined) return;
           var newImg = img.cloneNode();
-          newImg.addEventListener(LOAD, _this.handleImageLoad(img.offsetWidth, img.offsetHeight));
-        });
+          newImg.addEventListener(LOAD, this.handleImageLoad(img.offsetWidth, img.offsetHeight));
+          newImg.src = img.src; // required for IE
+        }
       }
       /**
        * Debounce
@@ -106,7 +88,7 @@
     }, {
       key: "debounce",
       value: function debounce(func) {
-        var _this2 = this;
+        var _this = this;
 
         var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;
         var timeout;
@@ -118,7 +100,7 @@
           window.clearTimeout(timeout);
           timeout = window.setTimeout(function (ctx) {
             return func.apply(ctx, args);
-          }, wait, _this2);
+          }, wait, _this);
         };
       }
       /**
@@ -139,15 +121,21 @@
           var wPercent = offsetWidth / 100;
           var hPercent = offsetHeight / 100;
           var mapName = e.target.getAttribute(USEMAP).replace(/^#/, "");
+          var areas = document.querySelectorAll(ImageMap.genAreaSelector(mapName));
 
-          _toConsumableArray(document.querySelectorAll(ImageMap.genAreaSelector(mapName))).forEach(function (area) {
+          var _loop = function _loop(i) {
+            var area = areas[i];
             var coordsString = area.dataset[COORDS] = area.dataset[COORDS] || area.getAttribute(COORDS);
             var coordsArrayOld = coordsString.split(",");
             var coordsArrayNew = coordsArrayOld.map(function (_, i) {
               return i % 2 === 0 ? Number(coordsArrayOld[i] / w * 100 * wPercent) : Number(coordsArrayOld[i] / h * 100 * hPercent);
             });
             area.setAttribute(COORDS, coordsArrayNew.toString());
-          });
+          };
+
+          for (var i = 0; i < areas.length; i++) {
+            _loop(i);
+          }
         };
       }
     }], [{
@@ -174,4 +162,4 @@
 
   return _ImageMap;
 
-})));
+}));
