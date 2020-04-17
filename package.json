@@ -1,6 +1,6 @@
 {
   "name": "image-map",
-  "version": "1.1.7",
+  "version": "2.0.0",
   "description": "Response, dynamic image maps",
   "main": "dist/image-map.js",
   "module": "dist/image-map.es.js",
@@ -14,9 +14,10 @@
   ],
   "scripts": {
     "build": "yarn build:dist",
-    "build:dist": "shx rm -rf ./dist/* ; yarn bundle:dist ; yarn bundle:es ; yarn stats:dist",
+    "build:dist": "shx rm -rf ./dist/* ; yarn bundle:dist ; yarn bundle:jq ; yarn bundle:es ; yarn stats:dist",
     "stats:dist": "node ./resources/dist-stats.js",
     "bundle:dist": "rollup -c ./resources/rollup-config.js",
+    "bundle:jq": "rollup -c ./resources/rollup-config-jq.js",
     "bundle:es": "rollup -c ./resources/rollup-config-es.js",
     "prettier": "prettier --write './src/*.{js,css,md}'",
     "prep": "yarn prettier && yarn build && yarn test",
@@ -54,21 +55,18 @@
     "test",
     "tests"
   ],
-  "peerDependencies": {
-    "jquery": ">= 1.1.2"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
+    "@rollup/plugin-commonjs": "^11.1.0",
+    "@rollup/plugin-json": "^4.0.2",
     "@types/node": "^12.7.8",
     "colors": "^1.3.2",
     "prettier": "^1.14.3",
-    "rollup": "^1.21.4",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-strip-banner": "^0.2.0",
+    "rollup": "^2.6.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-strip-banner": "^2.0.0",
     "shx": "^0.3.2",
     "uglify-js": "2.8.11",
     "uglify-save-license": "^0.4.1"

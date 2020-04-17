@@ -1,4 +1,3 @@
-import $ from "jquery";
 import { version } from "../package.json";
 
 const RESIZE = "resize";
@@ -83,12 +82,6 @@ class ImageMap {
       }
     };
   }
-}
-
-if ($ !== undefined && $.fn) {
-  $.fn.imageMap = function(wait) {
-    return new ImageMap(this.toArray(), wait);
-  };
 }
 
 function _ImageMap(selector, wait) {

@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 import babel from "rollup-plugin-babel";
-import commonjs from "rollup-plugin-commonjs";
-import json from "rollup-plugin-json";
+import commonjs from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
 import stripBanner from "rollup-plugin-strip-banner";
 
 const copyright = fs.readFileSync(path.join("resources", "COPYRIGHT"), "utf-8");
@@ -17,11 +17,7 @@ export default {
     banner: copyright,
     file: path.join(DIST_DIR, "image-map.es.js"),
     format: "es",
-    globals: {
-      "jquery": "$"
-    }
   },
-  external: ["jquery"],
   plugins: [
     json(),
     stripBanner(),

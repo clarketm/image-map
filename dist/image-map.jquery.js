@@ -5,11 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-(function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.ImageMap = factory());
-}(this, (function () { 'use strict';
+(function ($) {
+  'use strict';
+
+  $ = $ && Object.prototype.hasOwnProperty.call($, 'default') ? $['default'] : $;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -150,6 +149,10 @@
 
   _ImageMap.VERSION = version;
 
-  return _ImageMap;
+  if ($ !== undefined && $.fn) {
+    $.fn.imageMap = function (wait) {
+      return new _ImageMap(this.toArray(), wait);
+    };
+  }
 
-})));
+}($));

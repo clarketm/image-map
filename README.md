@@ -21,7 +21,7 @@ $ npm install image-map
 $ bower install image-map
 ```
 
-### CDN
+### [CDN](https://unpkg.com/browse/image-map/dist/)
 |                        Module (`.es.js`)                  |                        Main (`.js`)                    |                        Main (compressed) `.min.js`         |
 | :-------------------------------------------------------: | :----------------------------------------------------: | :--------------------------------------------------------: |
 | [🔗](https://unpkg.com/image-map/dist/image-map.es.js)    | [🔗](https://unpkg.com/image-map/dist/image-map.js)    | [🔗](https://unpkg.com/image-map/dist/image-map.min.js)    |
@@ -44,8 +44,49 @@ Add an **image-map** to your html page (either create one yourself or try the [o
 </map>
 ```
 
+### JavaScript
+
+To use this plugin with *only* JavaScript, first include (or import) the `image-map.js` library:
+
+```js
+// using `import`
+import ImageMap from "image-map";
+```
+
+```js
+// using `require`
+var ImageMap = require("image-map");
+```
+
+```html
+<!-- using `script` -->
+<script src="https://unpkg.com/image-map/dist/image-map.js"></script>
+```
+
+Next, simply call the `ImageMap` constructor:
+
+```js
+ImageMap('img[usemap]')
+```
+
+The default debounce rate is **500**ms. To customize this value, pass a numeric *wait* value as the second argument.
+
+```js
+ImageMap('img[usemap]', 500)
+```
+
 ### jQuery
-To use this plugin with jQuery, include (or import) both the [jQuery](https://jquery.com/) and `image-map.js` libraries, then simply call:
+
+To use this plugin with jQuery, first include both the [jQuery](https://jquery.com/) and `image-map.jquery.js` libraries:
+
+```html
+<!-- using `script` -->
+<script src="https://unpkg.com/jquery/dist/jquery.js"></script>
+<script src="https://unpkg.com/image-map/dist/image-map.jquery.js"></script>
+```
+
+Next, simply call the `imageMap` plugin:
+
 ```js
 $('img[usemap]').imageMap();
 ```
@@ -53,15 +94,4 @@ $('img[usemap]').imageMap();
 The default debounce rate is **500**ms. To customize this value, pass a numeric *wait* value as the first argument.
 ```js
 $('img[usemap]').imageMap(500);
-```
-
-### JavaScript (Vanilla JS)
-To use this plugin with *only* JavaScript, include (or import) the `image-map.js` library, then simply call:
-```js
-ImageMap('img[usemap]')
-```
-
-The default debounce rate is **500**ms. To customize this value, pass a numeric *wait* value as the second argument.
-```js
-ImageMap('img[usemap]', 500)
 ```

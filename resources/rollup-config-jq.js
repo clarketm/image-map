@@ -13,14 +13,17 @@ const SRC_DIR = path.resolve("src");
 const DIST_DIR = path.resolve("dist");
 
 export default {
-  input: path.join(SRC_DIR, "image-map.js"),
+  input: path.join(SRC_DIR, "image-map.jquery.js"),
   output: {
     name: "ImageMap",
     banner: copyright,
-    exports: "default",
-    file: path.join(DIST_DIR, "image-map.js"),
-    format: "umd"
+    file: path.join(DIST_DIR, "image-map.jquery.js"),
+    format: "iife",
+    globals: {
+      "jquery": "$"
+    }
   },
+  external: ["jquery"],
   plugins: [
     json(),
     stripBanner(),
@@ -44,7 +47,7 @@ export default {
           fs.mkdirSync(DIST_DIR);
         }
 
-        fs.writeFileSync(path.join(DIST_DIR, "image-map.min.js"), result.code, "utf8");
+        fs.writeFileSync(path.join(DIST_DIR, "image-map.jquery.min.js"), result.code, "utf8");
       }
     }
   ]
