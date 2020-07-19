@@ -27,7 +27,7 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-var version = "2.0.0";
+var version = "2.0.1";
 
 var RESIZE = "resize";
 var LOAD = "load";
@@ -108,8 +108,6 @@ var ImageMap = /*#__PURE__*/function () {
       return function (e) {
         var w = e.target.width;
         var h = e.target.height;
-        var wPercent = offsetWidth / 100;
-        var hPercent = offsetHeight / 100;
         var mapName = e.target.getAttribute(USEMAP).replace(/^#/, "");
         var areas = document.querySelectorAll(ImageMap.genAreaSelector(mapName));
 
@@ -118,7 +116,8 @@ var ImageMap = /*#__PURE__*/function () {
           var coordsString = area.dataset[COORDS] = area.dataset[COORDS] || area.getAttribute(COORDS);
           var coordsArrayOld = coordsString.split(",");
           var coordsArrayNew = coordsArrayOld.map(function (_, i) {
-            return i % 2 === 0 ? Number(coordsArrayOld[i] / w * 100 * wPercent) : Number(coordsArrayOld[i] / h * 100 * hPercent);
+            // Scale the coordinate from the original width/height to the actual rendered width/height (i.e. offset)
+            return i % 2 === 0 ? Number(coordsArrayOld[i] / w * offsetWidth) : Number(coordsArrayOld[i] / h * offsetHeight);
           });
           area.setAttribute(COORDS, coordsArrayNew.toString());
         };

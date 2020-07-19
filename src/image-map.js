@@ -65,8 +65,6 @@ class ImageMap {
     return e => {
       const w = e.target.width;
       const h = e.target.height;
-      const wPercent = offsetWidth / 100;
-      const hPercent = offsetHeight / 100;
       const mapName = e.target.getAttribute(USEMAP).replace(/^#/, "");
 
       const areas = document.querySelectorAll(ImageMap.genAreaSelector(mapName));
@@ -75,9 +73,10 @@ class ImageMap {
 
         const coordsString = (area.dataset[COORDS] = area.dataset[COORDS] || area.getAttribute(COORDS));
         const coordsArrayOld = coordsString.split(",");
-        const coordsArrayNew = coordsArrayOld.map((_, i) =>
-          i % 2 === 0 ? Number((coordsArrayOld[i] / w) * 100 * wPercent) : Number((coordsArrayOld[i] / h) * 100 * hPercent)
-        );
+        const coordsArrayNew = coordsArrayOld.map((_, i) => {
+          // Scale the coordinate from the original width/height to the actual rendered width/height (i.e. offset)
+          return i % 2 === 0 ? Number((coordsArrayOld[i] / w) * offsetWidth) : Number((coordsArrayOld[i] / h) * offsetHeight);
+        });
         area.setAttribute(COORDS, coordsArrayNew.toString());
       }
     };
